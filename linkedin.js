@@ -1,32 +1,26 @@
 function removeAds() {
-    //  Get all the span elements on the page
-
     let spans = document.getElementsByTagName('span');
 
-    for (let i =0; 1< spans.length; i++){
-        // check if they contain the text 'promoted'
-        if(spans[i].innerHTML === "Marknadsfört"){
-            // Get the div that wraps around the entire ad
+    for (let i = 0; i < spans.length; i++) {
+        if (spans[i].innerHTML.toLowerCase().includes("marknadsfört")) {
             let card = spans[i].closest(".feed-shared-update-v2");
 
-            // if the class changed and we can't find it width closest(), get the 6th par
-
-            if(card === null){
+            if (card === null) {
                 let j = 0;
                 card = spans[i];
-                while (j < 6 ) {
+                while (j < 6) {
                     card = card.parentNode;
-                    j++
+                    j++;
                 }
             }
 
-            // Make the add disappear!
-            card.setAttribute('style', "display: none !important;");
+            if (card) {
+                card.style.display = "none";
+            }
         }
     }
 }
 
-// Ensures ads will be removed as the user scrolls
-setInterval(()=>{
-    removeAds()
-},100)
+setInterval(() => {
+    removeAds();
+}, 100);
