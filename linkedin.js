@@ -5,7 +5,7 @@ function removeAds() {
 
     for (let i =0; 1< spans.length; i++){
         // check if they contain the text 'promoted'
-        if(spans[i].innerHTML === "promoted"){
+        if(spans[i].innerHTML === "Marknadsfört"){
             // Get the div that wraps around the entire ad
             let card = spans[i].closest(".feed-shared-update-v2");
 
